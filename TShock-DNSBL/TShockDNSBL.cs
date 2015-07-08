@@ -10,7 +10,7 @@ using TerrariaApi.Server;
 
 namespace TShock_DNSBL
 {
-    [ApiVersion(1, 16)]
+    [ApiVersion(1, 18)]
     public class Dnsbl : TerrariaPlugin
     {
         internal static string WhitelistPath
@@ -78,7 +78,7 @@ namespace TShock_DNSBL
                         TShock.Utils.ForceKick(TShock.Players[e.Who],
                                                string.Format("You are listed on the blacklist at {0}.",
                                                              m_checker.BlackList.VerifiedOnServer), true, false);
-                        Log.ConsoleInfo(string.Format("{0} was found on the blacklist at {1}", TShock.Players[e.Who].IP,
+                        TShock.Log.ConsoleInfo(string.Format("{0} was found on the blacklist at {1}", TShock.Players[e.Who].IP,
                                                       m_checker.BlackList.VerifiedOnServer));
                         e.Handled = true;
                         return;
